@@ -1,0 +1,40 @@
+
+# PlatformIO
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# VSCode
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Arduino
+*.elf
+*.bin
+*.hex
+*.eep
+*.map
+*.dmp
+*.out
+
+# SPIFFS
+spiffs.bin
+
+# Logs
+*.log
+
+# Python virtualenv
+.venv/
+venv/
+
+# Backup
+*~
+*.bak
+*.tmp
+
+# Test
+/test/*.o
+/test/*.d
