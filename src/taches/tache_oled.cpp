@@ -77,10 +77,10 @@ void drawFrame1(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int1
 void drawFrame2(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
   display->clear();
   display->setFont(ArialMT_Plain_16);
-  display->drawXbm(0, 0, temp_width, temp_height, reinterpret_cast<const uint8_t*>(Logo_capteur1)); // Affiche le logo du capteur 1
+  display->drawXbm(0, 0, temp_width, temp_height, reinterpret_cast<const uint8_t*>(Logo_capteur1)); // Affiche le logo température
   display->setFont(ArialMT_Plain_24);
-  display->drawString(60, 10, String(capteur1)); // Affiche la valeur du capteur 1
-  display->drawString(75, 40, "°C"); // Affiche l'unité (exemple : température en °C)
+  display->drawString(60, 10, String(temperature)); // Affiche la température
+  display->drawString(75, 40, "°C"); // Affiche l'unité (température en °C)
 }
 
 /**

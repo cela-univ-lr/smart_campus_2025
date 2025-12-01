@@ -8,7 +8,7 @@
 #include "taches/tache_oled.h"
 #include "taches/tache_paramperso.h"
 #include "taches/tache_ledrgb.h"
-#include "taches/tache_capteur1.h"
+#include "taches/tache_tempHum.h"
 #include "taches/tache_capteur2.h"
 #include <WiFiUdp.h>
 
@@ -46,11 +46,13 @@ extern char affHorodatageNTPHeure[6];
 
 //pour les entrées/sorties
 extern bool OLED;
-extern const char* Nom_capteur1;
+extern const char* Nom_temperature;
+extern const char* Nom_humidite;
 extern const char* Nom_capteur2;
 
 // pour les capteurs
-extern volatile float capteur1;
+extern volatile float temperature;
+extern volatile float humidite;
 extern volatile float capteur2; 
 
 #endif

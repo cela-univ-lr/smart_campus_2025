@@ -12,9 +12,9 @@
 
 // Définition des broches
 #define CONFIG_PIN                  0  // broche boot ; si appui alors niveau 0
-#define CAPTEUR1_PIN                1  // Broche exemple de liaison entre l'ESP32 et le capteur 1
-#define CAPTEUR1_PIN                2  // Broche exemple de liaison entre l'ESP32 et le capteur 1
-#define CAPTEUR1_INTERVAL_MS      4000  // Intervale de temps de la boucle infinie du capteur1 en ms 
+#define TEMPHUM_PIN                38  // Broche DHT22 (capteur température/humidité)
+#define DHTTYPE                  DHT22  // Type de capteur DHT
+#define TEMPHUM_INTERVAL_MS      4000  // Intervale de temps de la boucle infinie du capteur temp/hum en ms 
 #define CAPTEUR2_INTERVAL_MS      4000  // Intervale de temps de la boucle infinie du capteur1 en ms 
 
 /**

@@ -33,7 +33,7 @@ void setup() {
 
   xTaskCreate(&task_ledrgb, "LEDRGB", 8192, NULL, 5, NULL); // Tâche LED RGB WS2812 interne 
  
-  xTaskCreate(&tache_capteur1,"capteur capteur1", 8192, NULL, 6, NULL); // Thread capteur 1
+  xTaskCreate(&tache_tempHum,"TempHum DHT22", 8192, NULL, 6, NULL); // Thread température/humidité DHT22
 
   xTaskCreate(&tache_capteur2,"capteur capteur2", 8192, NULL, 7, NULL);
 
