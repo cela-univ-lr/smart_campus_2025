@@ -77,7 +77,7 @@ void drawFrame1(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int1
 void drawFrame2(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
   display->clear();
   display->setFont(ArialMT_Plain_16);
-  display->drawXbm(0, 0, temp_width, temp_height, reinterpret_cast<const uint8_t*>(Logo_capteur1)); // Affiche le logo température
+  display->drawXbm(0, 0, temp_width, temp_height, reinterpret_cast<const uint8_t*>(Logo_temp)); // Affiche le logo température
   display->setFont(ArialMT_Plain_24);
   display->drawString(60, 10, String(temperature)); // Affiche la température
   display->drawString(75, 40, "°C"); // Affiche l'unité (température en °C)
@@ -96,10 +96,10 @@ void drawFrame2(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int1
 void drawFrame3(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
   display->clear();
   display->setFont(ArialMT_Plain_16);
-  display->drawXbm(0, 8, volume_width, volume_height, reinterpret_cast<const uint8_t*>(Logo_capteur2)); // Affiche le logo du capteur 2
+  display->drawXbm(0, 8, volume_width, volume_height, reinterpret_cast<const uint8_t*>(Logo_hum)); // Affiche le logo du capteur 2
   display->setFont(ArialMT_Plain_24);
-  display->drawString(60, 10, String(capteur2)); // Affiche la valeur du capteur 2
-  display->drawString(60, 40, "Psi"); // Affiche l'unité (exemple : pression)
+  display->drawString(60, 10, String(humidite)); // Affiche la valeur d'humidité
+  display->drawString(60, 40, "%"); // Affiche l'unité (d'humidité en %)
 }
 
 /**
