@@ -46,10 +46,9 @@ float convertToLux(int analogValue) {
     // - ~1.5V à 500 lux (bureau bien éclairé)
     // - ~3.0V à 1000+ lux (lumière vive)
     //
-    // Approximation linéaire: Lux ≈ Voltage * 350
-    // (calibration approximative, peut nécessiter ajustement)
+    // Facteur de conversion ajustable selon la sensibilité souhaitée
     
-    float lux = voltage * 350.0f;
+    float lux = voltage * 100.0f;
     
     // Limiter les valeurs
     if (lux > 10000.0f) lux = 10000.0f;
