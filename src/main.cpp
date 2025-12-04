@@ -5,7 +5,7 @@ Framework utilisé : Arduino
 Board : ESP32s2 Saola 
 */
 #include "variablesGlobales.h"
-
+#include <Wire.h>
 
 // Déclaration d'une handle pour la tâche de gestion de l'afficheur OLED
 TaskHandle_t tache_oledhandle = NULL;
@@ -13,7 +13,15 @@ TaskHandle_t tache_oledhandle = NULL;
 void setup() {
 
   Serial.begin(115200); // configuration liason série pour debug en mode Terminal
-   xTaskCreate(&tache_oled, "affichage_OLED", 8192*2, NULL, 4, &tache_oledhandle); // Tâche  OLED SSD1306
+  delay(1000); // Délai pour laisser le temps à la connexion série de s'établir
+  Serial.println("\n=== Demarrage ESP32-S2 ===");
+  
+  // Initialisation du bus I2C avec les broches GPIO8 (SDA) et GPIO9 (SCL)
+  // Doit être fait UNE SEULE FOIS avant toutes les tâches utilisant I2C (OLED, SGP30, etc.)
+  Wire.begin(8, 9);
+  Serial.println("Bus I2C initialise sur GPIO8 (SDA) et GPIO9 (SCL)");
+  
+  xTaskCreate(&tache_oled, "affichage_OLED", 8192*2, NULL, 4, &tache_oledhandle); // Tâche  OLED SSD1306
   
   if (OLED == false){ 
 
@@ -35,7 +43,7 @@ void setup() {
  
   xTaskCreate(&tache_tempHum,"TempHum DHT22", 8192, NULL, 6, NULL); // Thread température/humidité DHT22
 
-  xTaskCreate(&tache_capteur2,"capteur capteur2", 8192, NULL, 7, NULL);
+  xTaskCreate(&tache_co2,"capteur CO2 SGP30", 8192, NULL, 7, NULL); // Thread CO2/TVOC SGP30
 
   // Ajouter d'autres tâches pour d'autres capteurs.....
 

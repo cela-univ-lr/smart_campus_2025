@@ -121,9 +121,28 @@ void drawFrame4(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int1
   display->drawString(54, 28, affHorodatageNTPHeure); // Affiche l'heure NTP
 }
 
+/**
+ * @brief Slide d'affichage du taux de CO2.
+ * 
+ * Cette fonction affiche le logo CO2 et la valeur actuelle du capteur SGP30 sur l'écran OLED.
+ * 
+ * @param display Pointeur vers l'objet OLEDDisplay.
+ * @param state Pointeur vers l'état actuel de l'affichage UI.
+ * @param x Position X du dessin.
+ * @param y Position Y du dessin.
+ */
+void drawFrame5(OLEDDisplay *display, OLEDDisplayUiState* state, int16_t x, int16_t y) {
+  display->clear();
+  display->setFont(ArialMT_Plain_16);
+  display->drawXbm(0, 0, co2_width, co2_height, reinterpret_cast<const uint8_t*>(Logo_co2)); // Affiche le logo CO2
+  display->setFont(ArialMT_Plain_24);
+  display->drawString(60, 10, String(co2)); // Affiche la valeur de CO2 en ppm
+  display->drawString(60, 40, "ppm"); // Affiche l'unité (ppm)
+}
+
 // Tableau de pointeurs vers les différentes frames d'affichage
-FrameCallback frames[] = { drawFrame1, drawFrame2, drawFrame3, drawFrame4 };
-int frameCount = 4; // Nombre de frames (ici 4 slides)
+FrameCallback frames[] = { drawFrame1, drawFrame2, drawFrame3, drawFrame4, drawFrame5 };
+int frameCount = 5; // Nombre de frames (ici 5 slides)
 
 // Overlays statiques qui se dessinent par-dessus une frame (exemple : horloge)
 OverlayCallback overlays[] = { msOverlay };

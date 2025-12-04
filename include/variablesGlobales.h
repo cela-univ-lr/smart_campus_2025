@@ -9,7 +9,7 @@
 #include "taches/tache_paramperso.h"
 #include "taches/tache_ledrgb.h"
 #include "taches/tache_tempHum.h"
-#include "taches/tache_capteur2.h"
+#include "taches/tache_co2.h"
 #include <WiFiUdp.h>
 
 //ESP32S2
@@ -48,11 +48,11 @@ extern char affHorodatageNTPHeure[6];
 extern bool OLED;
 extern const char* Nom_temperature;
 extern const char* Nom_humidite;
-extern const char* Nom_capteur2;
+extern const char* Nom_co2;
 
 // pour les capteurs
 extern volatile float temperature;
 extern volatile float humidite;
-extern volatile float capteur2; 
+extern volatile uint16_t co2; 
 
 #endif
