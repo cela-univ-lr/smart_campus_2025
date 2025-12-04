@@ -15,7 +15,9 @@
 #define TEMPHUM_PIN                38  // Broche DHT22 (capteur température/humidité)
 #define DHTTYPE                  DHT22  // Type de capteur DHT
 #define TEMPHUM_INTERVAL_MS      4000  // Intervale de temps de la boucle infinie du capteur temp/hum en ms 
-#define CO2_INTERVAL_MS           1000  // Intervale de temps de la boucle infinie du capteur CO2 en ms (1s recommandé pour SGP30) 
+#define CO2_INTERVAL_MS           1000  // Intervale de temps de la boucle infinie du capteur CO2 en ms (1s recommandé pour SGP30)
+#define LUMINOSITE_PIN               1  // Broche analogique pour le capteur de luminosité Grove Light Sensor
+#define LUMINOSITE_INTERVAL_MS    2000  // Intervale de temps de la boucle infinie du capteur luminosité en ms 
 
 /**
  * TIME NTP

@@ -20,7 +20,7 @@ void setup() {
   // Doit être fait UNE SEULE FOIS avant toutes les tâches utilisant I2C (OLED, SGP30, etc.)
   Wire.begin(8, 9);
   Serial.println("Bus I2C initialise sur GPIO8 (SDA) et GPIO9 (SCL)");
-  
+
   xTaskCreate(&tache_oled, "affichage_OLED", 8192*2, NULL, 4, &tache_oledhandle); // Tâche  OLED SSD1306
   
   if (OLED == false){ 
@@ -44,6 +44,8 @@ void setup() {
   xTaskCreate(&tache_tempHum,"TempHum DHT22", 8192, NULL, 6, NULL); // Thread température/humidité DHT22
 
   xTaskCreate(&tache_co2,"capteur CO2 SGP30", 8192, NULL, 7, NULL); // Thread CO2/TVOC SGP30
+
+  xTaskCreate(&tache_luminosite,"Luminosite Grove", 4096, NULL, 8, NULL); // Thread capteur de luminosité Grove
 
   // Ajouter d'autres tâches pour d'autres capteurs.....
 

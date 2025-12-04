@@ -10,6 +10,7 @@
 #include "taches/tache_ledrgb.h"
 #include "taches/tache_tempHum.h"
 #include "taches/tache_co2.h"
+#include "taches/tache_luminosite.h"
 #include <WiFiUdp.h>
 
 //ESP32S2
@@ -49,10 +50,12 @@ extern bool OLED;
 extern const char* Nom_temperature;
 extern const char* Nom_humidite;
 extern const char* Nom_co2;
+extern const char* Nom_luminosite;
 
 // pour les capteurs
 extern volatile float temperature;
 extern volatile float humidite;
-extern volatile uint16_t co2; 
+extern volatile uint16_t co2;
+extern volatile float luminosite;
 
 #endif
